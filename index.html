@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Journey Through Neural Network History</title>
+    <title>Introduction to Neural Networks and Their History</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,13 +33,25 @@
         ul {
             padding-left: 20px;
         }
-        .image-placeholder, .interactive-placeholder, .continue-button, .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section, .stop-and-think {
-            text-align: left;
+        .image-placeholder, .visual-aid-placeholder, .interactive-placeholder {
+            text-align: center;
+            margin-top: 20px;
         }
-        .image-placeholder img, .interactive-placeholder img {
+        .image-placeholder img, .visual-aid-placeholder img, .interactive-placeholder img {
             max-width: 100%;
             height: auto;
             border-radius: 5px;
+        }
+        .interactive-placeholder {
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            background-color: #f5f5f5;
+        }
+        .interactive-placeholder output {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
         }
         .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section, .stop-and-think {
             padding: 20px;
@@ -148,136 +160,187 @@
             margin-top: 10px;
             margin-bottom: 8px;
         }
+        .faq-section p {
+           margin-bottom: 10px;
+        }
+        .visual-aid-placeholder-labels {
+            margin-top: 10px;
+        }
+        .visual-aid-placeholder-labels ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .visual-aid-placeholder-labels li {
+            margin-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <section id="section1">
+        <h1>Welcome to Neural Networks!</h1>
+        <p>Welcome, future AI innovator! Get ready to dive into the fascinating world of Neural Networks. These powerful models are at the heart of many modern AI applications, from self-driving cars to virtual assistants. They've revolutionized machine learning, enabling us to tackle problems that were once considered impossible. But where did it all begin?</p>
         <div class="image-placeholder">
-            <img src="/placeholder.svg?height=300&width=600" alt="An abstract image showcasing a network of interconnected nodes, symbolizing the concept of neural networks and their complex structure.">
+            <img src="/placeholder.svg?height=300&width=600" alt="A futuristic cityscape with self-driving cars, robots, and other AI-powered technologies, symbolizing the impact of neural networks.">
         </div>
-        <h1>A Journey Through Neural Network History</h1>
-        
-        <p>Welcome to the exciting world of neural networks! Ever wondered how machines can learn to 'see' or 'think'? We're going to embark on a journey through time, starting way back in 1943 when the very first idea of an artificial neuron was born. Buckle up, because we are going on a ride!</p>
         <div class="continue-button" onclick="showNextSection(2)">Continue</div>
     </section>
 
     <section id="section2">
-        <p>Our story begins in <strong>1943</strong>. Two brilliant minds, <strong>Warren McCulloch</strong> and <strong>Walter Pitts</strong>, proposed the first mathematical model of a biological neuron. They called it the <strong>Threshold Logic Unit (TLU)</strong>. It was a simple model, but it laid the groundwork for everything that followed. It was able to do simple logic operations, like AND, OR and NOT.</p>
-        <div class="image-placeholder">
-            <img src="/placeholder.svg?height=300&width=600" alt="A simplified diagram of the Threshold Logic Unit (TLU). The diagram shows inputs, which are either 0 or 1, going into a circle that represents the TLU. Inside the circle is a summation symbol and a threshold symbol. The output, either 0 or 1, is shown coming out of the TLU.">
-        </div>
-        <p>The core idea of the TLU is to mimic a neuron's 'firing' based on inputs. Like you deciding to grab an umbrella if it's cloudy (input 1) or not (input 0), the TLU makes decisions based on simple on/off signals.</p>
-        <div class="vocab-section">
-            <h3>Build Your Vocab</h3>
-            <h4 class="vocab-term">Threshold Logic Unit (TLU)</h4>
-            <p>A mathematical model of a biological neuron that performs simple logic operations based on weighted inputs and a threshold.</p>
-        </div>
+        <h2>A Journey Through Time: The History of Neural Networks</h2>
+        <p>Let's embark on a journey through time to explore the key milestones in the history of neural networks. Our story starts way back in 1943, when the first artificial neuron, called the "Threshold Logic Unit (TLU)," was proposed. This was a very basic mathematical model, but it laid the foundation for everything that followed.</p>
         <div class="continue-button" onclick="showNextSection(3)">Continue</div>
     </section>
-
     <section id="section3">
-        <p>Fast forward to <strong>1957</strong>. <strong>Frank Rosenblatt</strong>, inspired by the TLU, created the <strong>Perceptron</strong>. This was a big leap! The Perceptron was the first artificial neural network that could actually <em>learn</em>. It had adjustable weights, which meant it could be trained to classify patterns. Imagine training a dog with treats – the Perceptron learned by adjusting its weights based on feedback from its performance.</p>
-        <div class="image-placeholder">
-            <img src="/placeholder.svg?height=300&width=600" alt="A photograph of Frank Rosenblatt with his Perceptron machine. The machine is large and has many wires and dials, giving a sense of the early hardware implementations of neural networks.">
-        </div>
-        <p>Here is Frank Rosenblatt himself presenting his invention: The Perceptron.</p>
-        <div class="interactive-placeholder">
-            <img src="/placeholder.svg?height=300&width=600" alt="An interactive diagram of a single-layer Perceptron. Users can toggle inputs (0 or 1), adjust weights (sliders), and see how the output changes. The weighted sum and activation (step function) are displayed, illustrating the Perceptron's decision process.">
-        </div>
-        <p>Try adjusting the weights and see how the output changes. This demonstrates how the Perceptron makes decisions based on weighted inputs.</p>
-        <div class="continue-button" onclick="showNextSection(4)">Continue</div>
-    </section>
-
-    <section id="section4">
-        <p>In the mid-1960s, researchers such as <strong>Alexey Ivakhnenko</strong> developed an early form of a feedforward multilayer network called <strong>Group Method of Data Handling (GMDH)</strong>. This was a big milestone, though it didn't immediately become mainstream. Progress slowed in the following years as hardware and algorithmic limitations became apparent. But then, in <strong>1970</strong>, a major breakthrough emerged: <strong>backpropagation</strong>. The foundational work by <strong>Seppo Linnainmaa</strong> on reverse-mode automatic differentiation laid the groundwork for this technique. Later, <strong>Paul Werbos</strong> (1974) applied these ideas to neural networks, and <strong>David Rumelhart</strong>, <strong>Geoffrey Hinton</strong>, and <strong>Ronald Williams</strong> popularized backpropagation in 1986. Think of it as a way to fine-tune the network by adjusting the weights based on how well it's performing.</p>
+        <p>Fast forward to 1957. Frank Rosenblatt, a brilliant scientist, developed the <b>perceptron</b>. This was the simplest form of an artificial neural network, capable of learning simple patterns. Think of it as the first baby step towards the complex networks we have today.</p>
         <div class="vocab-section">
             <h3>Build Your Vocab</h3>
-            <h4 class="vocab-term">Backpropagation</h4>
-            <p>An algorithm for efficiently training neural networks by calculating the gradient of the loss function with respect to the network's weights.</p>
+            <h4>Perceptron</h4>
+            <p>The perceptron is the simplest form of an artificial neural network. It's a single-layer network that can learn linearly separable patterns.</p>
         </div>
-        <div class="stop-and-think">
-            <h3>Stop and Think</h3>
-            <h4>Why do you think backpropagation was such a significant development? Discuss how it might have addressed the limitations of earlier models.</h4>
-            <button class="reveal-button" onclick="revealAnswer('stop-and-think-1')">Reveal</button>
-            <p id="stop-and-think-1" style="display: none;">Backpropagation was significant because it provided an efficient way to train multi-layer neural networks. Earlier models struggled with training deep networks due to the difficulty of adjusting weights in hidden layers. Backpropagation solved this by allowing the network to learn from its errors, propagating them backwards through the layers and adjusting weights accordingly. This enabled the creation of more complex and powerful neural networks capable of learning intricate patterns in data.</p>
-        </div>
+        <div class="continue-button" onclick="showNextSection(4)">Continue</div>
+    </section>
+    <section id="section4">
+        <p>In 1965, another breakthrough occurred: the first working feedforward multilayer network was successfully applied for supervised learning. This meant that networks could now have multiple layers of interconnected neurons, allowing them to learn more complex relationships in the data. It was like going from a single-story house to a multi-story building!</p>
         <div class="continue-button" onclick="showNextSection(5)">Continue</div>
     </section>
-
     <section id="section5">
-        <p>The late 70s and early 80s saw the development of specialized networks. In <strong>1979</strong>, the precursors of <strong>Convolutional Neural Networks (CNNs)</strong> were developed, notably Kunihiko Fukushima's Neocognitron, which paved the way for modern CNNs. And in <strong>1982</strong>, <strong>John Hopfield</strong> introduced a form of recurrent neural network known as the Hopfield Network, illustrating how networks could store and retrieve patterns. These advances set the stage for further RNN designs that handle sequential data like text or audio. Each type of network was like a specialized tool, designed for a specific type of task.</p>
-        <div class="image-placeholder">
-            <img src="/placeholder.svg?height=300&width=600" alt="A split diagram comparing a basic CNN and RNN. The CNN side shows layers processing an image, with feature maps highlighting edges and textures. The RNN side shows a sequence of inputs (e.g., words in a sentence) being processed over time, with connections looping back, illustrating the recurrent nature.">
+        <p>The 1970s brought us the <b>backpropagation</b> algorithm, a crucial development that enabled us to train these multi-layered networks efficiently. Before backpropagation, training complex networks was a major challenge. Think of backpropagation as the ingenious architect that made skyscrapers possible.</p>
+        <div class="vocab-section">
+            <h3>Build Your Vocab</h3>
+            <h4>Backpropagation</h4>
+            <p>An algorithm for efficiently training artificial neural networks, especially those with multiple layers. It works by calculating the error at the output and propagating it back through the network to update the weights.</p>
         </div>
         <div class="continue-button" onclick="showNextSection(6)">Continue</div>
     </section>
-
     <section id="section6">
-        <p>In <strong>1986</strong>, researchers successfully trained a multi-layered network using backpropagation. This was a huge moment! It demonstrated the practical power of this algorithm and paved the way for more complex and capable neural networks. Finally, networks could adjust their internal parameters to minimize the difference between predicted output and actual output across multiple layers, significantly improving the learning capability of neural networks.</p>
-        <div class="why-it-matters">
-            <h3>Why It Matters</h3>
-            <p>This milestone proved that multi-layered neural networks could be effectively trained, opening the door for deeper and more powerful models.</p>
-        </div>
-        <div class="faq-section">
-            <h3>Frequently Asked Questions</h3>
-            <h4>Why is training multi-layered networks so important?</h4>
-            <p>Multi-layered networks can learn hierarchical representations of data, allowing them to capture complex patterns that simpler models can't. This is crucial for tasks like image recognition and natural language processing.</p>
-        </div>
+        <p>In 1979, researchers developed the precursors of <b>Convolutional Neural Networks (CNNs)</b>. These specialized networks are particularly good at processing images, and they've revolutionized computer vision. Imagine them as the specialized tools for image analysis.</p>
         <div class="continue-button" onclick="showNextSection(7)">Continue</div>
     </section>
-
     <section id="section7">
-        <p>In <strong>1997</strong>, <strong>Long Short-Term Memory (LSTM)</strong> networks were introduced by Hochreiter and Schmidhuber. These were a special type of RNN that could remember information over longer periods. Think of it as giving the network a better memory. This was crucial for tasks like machine translation, where understanding the context of a sentence is essential. LSTMs addressed the vanishing gradient problem, a major hurdle in training deep networks. By introducing a memory cell and gating mechanisms, LSTMs could selectively remember or forget information over time, making them highly effective for tasks requiring long-range dependencies.</p>
-        <div class="vocab-section">
-            <h3>Build Your Vocab</h3>
-            <h4 class="vocab-term">LSTM (Long Short-Term Memory)</h4>
-            <p>A type of recurrent neural network (RNN) that can learn long-range dependencies in sequential data.</p>
-        </div>
+        <p>Then, in 1982, <b>Recurrent Neural Networks (RNNs)</b> were developed. These networks have a "memory" that allows them to process sequences of data, like text or audio. They are like the storytellers of the neural network world, capable of understanding context and time dependencies.</p>
         <div class="continue-button" onclick="showNextSection(8)">Continue</div>
     </section>
-
     <section id="section8">
-        <p>From <strong>2006 to 2012</strong>, we entered the era of <strong>deep learning</strong>. This period was marked by the development of techniques that allowed us to train very deep networks with many layers. Deeper networks could learn more complex patterns, leading to significant improvements in areas like image and speech recognition.</p>
-        <div class="image-placeholder">
-            <img src="/placeholder.svg?height=300&width=600" alt="A diagram of a deep neural network with many layers. The layers are stacked vertically, with arrows indicating the flow of information. The network starts with an input layer, followed by multiple hidden layers, and ends with an output layer. The depth of the network is emphasized visually.">
-        </div>
+        <p>1986 saw the first successful training of a multi-layered neural network using backpropagation, a pivotal moment that confirmed the power of this algorithm.</p>
         <div class="continue-button" onclick="showNextSection(9)">Continue</div>
     </section>
-
     <section id="section9">
-        <p>In <strong>2012</strong>, a deep learning model called <strong>AlexNet</strong> won the <strong>ImageNet Large Scale Visual Recognition Challenge</strong> by a wide margin. This was a watershed moment. It demonstrated the power of deep learning for computer vision tasks and ignited a revolution in the field. AlexNet's success was due to its deep architecture, use of GPUs for training, and techniques like ReLU activation and dropout, which helped prevent overfitting.</p>
-        <div class="why-it-matters">
-            <h3>Why It Matters</h3>
-            <p>AlexNet's victory marked a turning point, proving that deep learning could achieve unprecedented accuracy on complex tasks, and sparking widespread interest and investment in the field.</p>
-        </div>
-        <div class="test-your-knowledge">
-            <h3>Test Your Knowledge</h3>
-            <h4>What was the significance of AlexNet winning the ImageNet competition in 2012?</h4>
-            <button class="reveal-button" onclick="revealAnswer('test-your-knowledge-1')">Reveal Answer</button>
-            <div id="test-your-knowledge-1" style="display: none;">
-                <p><strong>Correct Answer:</strong> It demonstrated the power of deep learning for computer vision.</p>
-                <p><strong>Explanation:</strong> AlexNet's large margin of victory showed that deep learning could achieve state-of-the-art results on a challenging image recognition task.</p>
-            </div>
-        </div>
+        <p>In 1997, <b>Long Short-Term Memory (LSTM)</b> networks were introduced. These are a special type of RNN that can remember information over longer periods, making them even better at handling sequential data. They are like the upgraded version of RNNs with enhanced memory capabilities.</p>
         <div class="continue-button" onclick="showNextSection(10)">Continue</div>
     </section>
-
     <section id="section10">
-        <p>And in <strong>2016</strong>, another milestone: <strong>AlphaGo</strong>, a deep learning system developed by Google, defeated the world champion in the game of Go. This was a huge achievement because Go is an incredibly complex game, and many thought it would be years before AI could master it.</p>
-        <div class="image-placeholder">
-            <img src="/placeholder.svg?height=300&width=600" alt="A photograph of the AlphaGo match, showing a Go board and the human player contemplating his move. The image conveys the intensity of the competition and the significance of AI playing at a superhuman level.">
-        </div>
+        <p>The years between 2006 and 2012 marked the beginning of the <b>deep learning</b> era. Deep learning involves training neural networks with many layers, enabling them to learn incredibly complex patterns and representations. This was like the renaissance of neural networks, a period of rapid advancement and discovery!</p>
         <div class="continue-button" onclick="showNextSection(11)">Continue</div>
     </section>
-
     <section id="section11">
-        <p>From the simple TLU to AlphaGo's triumph, the journey of neural networks has been filled with twists and turns. We've seen periods of rapid progress and periods of stagnation. But through it all, the dream of creating intelligent machines has persisted. And today, thanks to the pioneers who laid the foundation, we're living in an era where neural networks are transforming our world in ways we never thought possible.</p>
+        <p>2012 was a landmark year. A deep learning network called <b>AlexNet</b> won the ImageNet competition by a huge margin. This demonstrated the power of deep learning for image recognition and set the stage for many future breakthroughs. It was like the moment when deep learning truly took center stage.</p>
+        <div class="continue-button" onclick="showNextSection(12)">Continue</div>
+    </section>
+    <section id="section12">
+        <p>And in 2016, <b>AlphaGo</b>, a deep learning system from Google, defeated the world champion in the game of Go. This was a historic achievement, as Go was considered a much more challenging game for AI than chess. AlphaGo showed that deep learning could master complex strategic thinking.</p>
+        <div class="continue-button" onclick="showNextSection(13)">Continue</div>
+    </section>
+    <section id="section13">
+        <p>Let's visualize this incredible journey:</p>
+        <div class="visual-aid-placeholder">
+            <p><b>Timeline of Neural Network Development</b></p>
+            <img src="/placeholder.svg?height=300&width=600" alt="A visually engaging timeline graphic highlighting the key events mentioned above (1943, 1957, 1965, 1970, 1979, 1982, 1986, 1997, 2006-2012, 2012, 2016). Each event should have a brief description and a relevant icon or image. For example, 1943 could have a simple neuron icon, 1957 could have a simple network diagram, 2012 could have an image of AlexNet winning, and 2016 could have a Go board. The timeline should be colorful and easy to follow.">
+            <p>A visual journey through the major milestones in the history of neural networks, from the first artificial neuron to the triumphs of deep learning.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(14)">Continue</div>
+    </section>
+
+    <section id="section14">
+        <h2>The Fuel of Deep Learning: Data</h2>
+        <p>Now, you might be wondering, what's behind this recent explosion of deep learning? One crucial factor is <b>data</b>. Deep learning models are incredibly data-hungry. They thrive on massive datasets, using them to learn intricate patterns and make accurate predictions.</p>
+        <div class="continue-button" onclick="showNextSection(15)">Continue</div>
+    </section>
+    <section id="section15">
+        <p>Andrew Ng, a leading figure in AI, once said, "The analogy to deep learning is that the rocket engine is the deep learning models and the fuel is the huge amounts of data we can feed to these algorithms." This perfectly captures the relationship between deep learning and data. More data often translates to better performance.</p>
+        <div class="continue-button" onclick="showNextSection(16)">Continue</div>
+    </section>
+    <section id="section16">
+        <p>Let's look at a graph that illustrates this:</p>
+        <div class="visual-aid-placeholder">
+            <p><b>Deep Learning vs. Classical Learning: Performance Scaling</b></p>
+            <img src="/placeholder.svg?height=300&width=600" alt="A line graph with 'Performance' on the y-axis and 'Amount of Training Data' on the x-axis. Two curves are plotted: 'Deep Learning' (showing continuous improvement) and 'Classical Learning' (showing a plateau). The 'Deep Learning' curve should be steeper, indicating that its performance scales better with more data. The graph could also include an image of a rocket engine next to the 'Deep Learning' curve and a pile of fuel next to the x-axis label to visually represent Andrew Ng's quote.">
+            <p>Deep learning models, fueled by large datasets, outperform classical methods as the amount of training data increases.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(17)">Continue</div>
+    </section>
+    <section id="section17">
+        <p>As you can see, classical machine learning methods tend to plateau in performance as the dataset grows. But deep learning models continue to improve, getting better and better with more data. This is one of the key reasons why deep learning has become so dominant in recent years.</p>
+        <div class="continue-button" onclick="showNextSection(18)">Continue</div>
+    </section>
+    <section id="section18">
+        <p>Here is a reference that highlights this concept: Zappone, A., Di Renzo, M., & Debbah, M. (2019). Wireless Networks Design in the Era of Deep Learning: Model-Based, AI-Based, or Both?. IEEE Transactions on Communications, PP. 1-1.</p>
+        <div class="continue-button" onclick="showNextSection(19)">Continue</div>
+    </section>
+    <section id="section19">
+        <p>It's like comparing a small car with a limited fuel tank to a powerful rocket with a massive fuel supply. The rocket can go much farther and achieve much greater heights because it has more fuel to burn.</p>
+        <div class="why-it-matters">
+            <h3>Why It Matters</h3>
+            <p>The ability of deep learning to leverage large datasets is a game-changer. It means that as we collect more and more data in various domains, we can build increasingly powerful and accurate AI models.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(20)">Continue</div>
+    </section>
+    <section id="section20">
+        <div class="stop-and-think">
+            <h3>Stop and Think</h3>
+            <p>Can you think of some areas where large datasets are being generated that could be used to train deep learning models?</p>
+            <button class="reveal-button" onclick="revealAnswer('stop-and-think-20')">Reveal Answer</button>
+            <p id="stop-and-think-20" style="display: none;">Some examples include: social media (text, images, videos), online shopping (customer behavior, product information), medical records (patient data, medical images), and scientific research (experimental data, simulations).</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(21)">Continue</div>
+    </section>
+
+    <section id="section21">
+        <h2>Frequently Asked Questions</h2>
+            <div class="faq-section">
+                <h4>Why is deep learning so popular now if neural networks have been around for so long?</h4>
+                <p>Several factors have contributed to the rise of deep learning: the availability of massive datasets, the development of powerful hardware like GPUs, and algorithmic advancements like backpropagation and new network architectures.</p>
+                <h4>What's the difference between artificial intelligence, machine learning, and deep learning?</h4>
+                <p>Artificial intelligence (AI) is the broad concept of creating machines that can perform tasks that typically require human intelligence. Machine learning (ML) is a subset of AI where machines learn from data without being explicitly programmed. Deep learning is a subset of ML that uses deep neural networks with multiple layers to learn complex patterns.</p>
+            </div>
+        <div class="continue-button" onclick="showNextSection(22)">Continue</div>
+    </section>
+
+    <section id="section22">
+        <h2>Test Your Knowledge</h2>
+        <div class="test-your-knowledge">
+            <h4>Which of the following statements are true?</h4>
+            <p><input type="checkbox" name="q1" value="a"> The perceptron was the first artificial neural network.</p>
+            <p><input type="checkbox" name="q1" value="b"> Backpropagation is an algorithm for training multi-layer neural networks.</p>
+            <p><input type="checkbox" name="q1" value="c"> Deep learning models perform better with more data.</p>
+            <p><input type="checkbox" name="q1" value="d"> Convolutional Neural Networks (CNNs) are primarily used for processing text data.</p>
+            <button class="check-button" onclick="checkAnswers('q1', ['a', 'b', 'c'])">Check Answers</button>
+            <p id="q1-feedback" style="display: none;"></p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(23)">Continue</div>
+    </section>
+
+    <section id="section23">
+        <h2>Review and Reflect</h2>
+        <p>In this introductory lesson, we've taken a journey through the fascinating history of neural networks, from the early days of the perceptron to the modern era of deep learning. We've seen how key innovations and the availability of large datasets have fueled the rise of these powerful models. We also discussed the importance of data for deep learning and how it outperforms classical machine learning methods when fueled with large datasets. In the next lesson, we'll explore the impact of deep learning with the ImageNet example.</p>
+        <div class="image-placeholder">
+            <img src="/placeholder.svg?height=300&width=600" alt="A collage of images representing different milestones in the history of neural networks, such as a perceptron diagram, a multi-layer network, the ImageNet logo, and the AlphaGo board.">
+        </div>
     </section>
 
     <script>
-        // Show the first section initially
         document.getElementById("section1").style.display = "block";
         document.getElementById("section1").style.opacity = "1";
 
@@ -303,6 +366,28 @@
             
             revealText.style.display = "block";
             revealButton.style.display = "none";
+        }
+
+        function checkAnswers(questionId, correctAnswers) {
+            const selectedAnswers = [];
+            const checkboxes = document.querySelectorAll(`input[name="${questionId}"]:checked`);
+            checkboxes.forEach((checkbox) => {
+                selectedAnswers.push(checkbox.value);
+            });
+        
+            const feedbackElement = document.getElementById(`${questionId}-feedback`);
+            
+            
+            if (selectedAnswers.sort().join(',')=== correctAnswers.sort().join(',')) {
+                feedbackElement.textContent = "Correct! Well done.";
+                feedbackElement.style.color = "green";
+            } else {
+                feedbackElement.textContent = "Incorrect. Try again!";
+                feedbackElement.style.color = "red";
+            }
+            
+            
+            feedbackElement.style.display = "block";
         }
     </script>
 </body>
