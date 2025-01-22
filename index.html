@@ -33,25 +33,13 @@
         ul {
             padding-left: 20px;
         }
-        .image-placeholder, .visual-aid-placeholder, .interactive-placeholder {
-            text-align: center;
-            margin-top: 20px;
+        .image-placeholder, .interactive-placeholder, .continue-button, .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section, .stop-and-think {
+            text-align: left;
         }
-        .image-placeholder img, .visual-aid-placeholder img, .interactive-placeholder img {
+        .image-placeholder img, .interactive-placeholder img {
             max-width: 100%;
             height: auto;
             border-radius: 5px;
-        }
-        .interactive-placeholder {
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            background-color: #f5f5f5;
-        }
-        .interactive-placeholder output {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
         }
         .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section, .stop-and-think {
             padding: 20px;
@@ -160,41 +148,17 @@
             margin-top: 10px;
             margin-bottom: 8px;
         }
-        .faq-section p {
-           margin-bottom: 10px;
-        }
-        .visual-aid-placeholder-labels {
-            margin-top: 10px;
-        }
-        .visual-aid-placeholder-labels ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .visual-aid-placeholder-labels li {
-            margin-bottom: 5px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
     </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <section id="section1">
         <h1>Welcome to Neural Networks!</h1>
-        <p>Welcome, future AI innovator! Get ready to dive into the fascinating world of Neural Networks. These powerful models are at the heart of many modern AI applications, from self-driving cars to virtual assistants. They've revolutionized machine learning, enabling us to tackle problems that were once considered impossible. But where did it all begin?</p>
         <div class="image-placeholder">
             <img src="/placeholder.svg?height=300&width=600" alt="A futuristic cityscape with self-driving cars, robots, and other AI-powered technologies, symbolizing the impact of neural networks.">
         </div>
+        <p>Welcome, future AI innovator! Get ready to dive into the fascinating world of Neural Networks. These powerful models are at the heart of many modern AI applications, from self-driving cars to virtual assistants. They've revolutionized machine learning, enabling us to tackle problems that were once considered impossible. But where did it all begin?</p>
         <div class="continue-button" onclick="showNextSection(2)">Continue</div>
     </section>
 
@@ -203,92 +167,106 @@
         <p>Let's embark on a journey through time to explore the key milestones in the history of neural networks. Our story starts way back in 1943, when the first artificial neuron, called the "Threshold Logic Unit (TLU)," was proposed. This was a very basic mathematical model, but it laid the foundation for everything that followed.</p>
         <div class="continue-button" onclick="showNextSection(3)">Continue</div>
     </section>
+
     <section id="section3">
-        <p>Fast forward to 1957. Frank Rosenblatt, a brilliant scientist, developed the <b>perceptron</b>. This was the simplest form of an artificial neural network, capable of learning simple patterns. Think of it as the first baby step towards the complex networks we have today.</p>
+        <p>Fast forward to 1957. Frank Rosenblatt, a brilliant scientist, developed the <strong>perceptron</strong>. This was the simplest form of an artificial neural network, capable of learning simple patterns. Think of it as the first baby step towards the complex networks we have today.</p>
         <div class="vocab-section">
             <h3>Build Your Vocab</h3>
-            <h4>Perceptron</h4>
+            <h4 class="vocab-term">Perceptron</h4>
             <p>The perceptron is the simplest form of an artificial neural network. It's a single-layer network that can learn linearly separable patterns.</p>
         </div>
         <div class="continue-button" onclick="showNextSection(4)">Continue</div>
     </section>
+
     <section id="section4">
         <p>In 1965, another breakthrough occurred: the first working feedforward multilayer network was successfully applied for supervised learning. This meant that networks could now have multiple layers of interconnected neurons, allowing them to learn more complex relationships in the data. It was like going from a single-story house to a multi-story building!</p>
         <div class="continue-button" onclick="showNextSection(5)">Continue</div>
     </section>
+
     <section id="section5">
-        <p>The 1970s brought us the <b>backpropagation</b> algorithm, a crucial development that enabled us to train these multi-layered networks efficiently. Before backpropagation, training complex networks was a major challenge. Think of backpropagation as the ingenious architect that made skyscrapers possible.</p>
+        <p>The 1970s brought us the <strong>backpropagation</strong> algorithm, a crucial development that enabled us to train these multi-layered networks efficiently. Before backpropagation, training complex networks was a major challenge. Think of backpropagation as the ingenious architect that made skyscrapers possible.</p>
         <div class="vocab-section">
             <h3>Build Your Vocab</h3>
-            <h4>Backpropagation</h4>
+            <h4 class="vocab-term">Backpropagation</h4>
             <p>An algorithm for efficiently training artificial neural networks, especially those with multiple layers. It works by calculating the error at the output and propagating it back through the network to update the weights.</p>
         </div>
         <div class="continue-button" onclick="showNextSection(6)">Continue</div>
     </section>
+
     <section id="section6">
-        <p>In 1979, researchers developed the precursors of <b>Convolutional Neural Networks (CNNs)</b>. These specialized networks are particularly good at processing images, and they've revolutionized computer vision. Imagine them as the specialized tools for image analysis.</p>
+        <p>In 1979, researchers developed the precursors of <strong>Convolutional Neural Networks (CNNs)</strong>. These specialized networks are particularly good at processing images, and they've revolutionized computer vision. Imagine them as the specialized tools for image analysis.</p>
         <div class="continue-button" onclick="showNextSection(7)">Continue</div>
     </section>
+
     <section id="section7">
-        <p>Then, in 1982, <b>Recurrent Neural Networks (RNNs)</b> were developed. These networks have a "memory" that allows them to process sequences of data, like text or audio. They are like the storytellers of the neural network world, capable of understanding context and time dependencies.</p>
+        <p>Then, in 1982, <strong>Recurrent Neural Networks (RNNs)</strong> were developed. These networks have a "memory" that allows them to process sequences of data, like text or audio. They are like the storytellers of the neural network world, capable of understanding context and time dependencies.</p>
         <div class="continue-button" onclick="showNextSection(8)">Continue</div>
     </section>
+
     <section id="section8">
         <p>1986 saw the first successful training of a multi-layered neural network using backpropagation, a pivotal moment that confirmed the power of this algorithm.</p>
         <div class="continue-button" onclick="showNextSection(9)">Continue</div>
     </section>
+
     <section id="section9">
-        <p>In 1997, <b>Long Short-Term Memory (LSTM)</b> networks were introduced. These are a special type of RNN that can remember information over longer periods, making them even better at handling sequential data. They are like the upgraded version of RNNs with enhanced memory capabilities.</p>
+        <p>In 1997, <strong>Long Short-Term Memory (LSTM)</strong> networks were introduced. These are a special type of RNN that can remember information over longer periods, making them even better at handling sequential data. They are like the upgraded version of RNNs with enhanced memory capabilities.</p>
         <div class="continue-button" onclick="showNextSection(10)">Continue</div>
     </section>
+
     <section id="section10">
-        <p>The years between 2006 and 2012 marked the beginning of the <b>deep learning</b> era. Deep learning involves training neural networks with many layers, enabling them to learn incredibly complex patterns and representations. This was like the renaissance of neural networks, a period of rapid advancement and discovery!</p>
+        <p>The years between 2006 and 2012 marked the beginning of the <strong>deep learning</strong> era. Deep learning involves training neural networks with many layers, enabling them to learn incredibly complex patterns and representations. This was like the renaissance of neural networks, a period of rapid advancement and discovery!</p>
         <div class="continue-button" onclick="showNextSection(11)">Continue</div>
     </section>
+
     <section id="section11">
-        <p>2012 was a landmark year. A deep learning network called <b>AlexNet</b> won the ImageNet competition by a huge margin. This demonstrated the power of deep learning for image recognition and set the stage for many future breakthroughs. It was like the moment when deep learning truly took center stage.</p>
+        <p>2012 was a landmark year. A deep learning network called <strong>AlexNet</strong> won the ImageNet competition by a huge margin. This demonstrated the power of deep learning for image recognition and set the stage for many future breakthroughs. It was like the moment when deep learning truly took center stage.</p>
         <div class="continue-button" onclick="showNextSection(12)">Continue</div>
     </section>
+
     <section id="section12">
-        <p>And in 2016, <b>AlphaGo</b>, a deep learning system from Google, defeated the world champion in the game of Go. This was a historic achievement, as Go was considered a much more challenging game for AI than chess. AlphaGo showed that deep learning could master complex strategic thinking.</p>
+        <p>And in 2016, <strong>AlphaGo</strong>, a deep learning system from Google, defeated the world champion in the game of Go. This was a historic achievement, as Go was considered a much more challenging game for AI than chess. AlphaGo showed that deep learning could master complex strategic thinking.</p>
         <div class="continue-button" onclick="showNextSection(13)">Continue</div>
     </section>
+
     <section id="section13">
         <p>Let's visualize this incredible journey:</p>
-        <div class="visual-aid-placeholder">
-            <p><b>Timeline of Neural Network Development</b></p>
-            <img src="/placeholder.svg?height=300&width=600" alt="A visually engaging timeline graphic highlighting the key events mentioned above (1943, 1957, 1965, 1970, 1979, 1982, 1986, 1997, 2006-2012, 2012, 2016). Each event should have a brief description and a relevant icon or image. For example, 1943 could have a simple neuron icon, 1957 could have a simple network diagram, 2012 could have an image of AlexNet winning, and 2016 could have a Go board. The timeline should be colorful and easy to follow.">
-            <p>A visual journey through the major milestones in the history of neural networks, from the first artificial neuron to the triumphs of deep learning.</p>
+        <div class="image-placeholder">
+            <img src="/placeholder.svg?height=600&width=800" alt="Timeline of Neural Network Development">
         </div>
+        <p>A visual journey through the major milestones in the history of neural networks, from the first artificial neuron to the triumphs of deep learning.</p>
         <div class="continue-button" onclick="showNextSection(14)">Continue</div>
     </section>
 
     <section id="section14">
         <h2>The Fuel of Deep Learning: Data</h2>
-        <p>Now, you might be wondering, what's behind this recent explosion of deep learning? One crucial factor is <b>data</b>. Deep learning models are incredibly data-hungry. They thrive on massive datasets, using them to learn intricate patterns and make accurate predictions.</p>
+        <p>Now, you might be wondering, what's behind this recent explosion of deep learning? One crucial factor is <strong>data</strong>. Deep learning models are incredibly data-hungry. They thrive on massive datasets, using them to learn intricate patterns and make accurate predictions.</p>
         <div class="continue-button" onclick="showNextSection(15)">Continue</div>
     </section>
+
     <section id="section15">
         <p>Andrew Ng, a leading figure in AI, once said, "The analogy to deep learning is that the rocket engine is the deep learning models and the fuel is the huge amounts of data we can feed to these algorithms." This perfectly captures the relationship between deep learning and data. More data often translates to better performance.</p>
         <div class="continue-button" onclick="showNextSection(16)">Continue</div>
     </section>
+
     <section id="section16">
         <p>Let's look at a graph that illustrates this:</p>
-        <div class="visual-aid-placeholder">
-            <p><b>Deep Learning vs. Classical Learning: Performance Scaling</b></p>
-            <img src="/placeholder.svg?height=300&width=600" alt="A line graph with 'Performance' on the y-axis and 'Amount of Training Data' on the x-axis. Two curves are plotted: 'Deep Learning' (showing continuous improvement) and 'Classical Learning' (showing a plateau). The 'Deep Learning' curve should be steeper, indicating that its performance scales better with more data. The graph could also include an image of a rocket engine next to the 'Deep Learning' curve and a pile of fuel next to the x-axis label to visually represent Andrew Ng's quote.">
-            <p>Deep learning models, fueled by large datasets, outperform classical methods as the amount of training data increases.</p>
+        <div class="image-placeholder">
+            <img src="/placeholder.svg?height=400&width=600" alt="Deep Learning vs. Classical Learning: Performance Scaling">
         </div>
+        <p>Deep learning models, fueled by large datasets, outperform classical methods as the amount of training data increases.</p>
         <div class="continue-button" onclick="showNextSection(17)">Continue</div>
     </section>
+
     <section id="section17">
         <p>As you can see, classical machine learning methods tend to plateau in performance as the dataset grows. But deep learning models continue to improve, getting better and better with more data. This is one of the key reasons why deep learning has become so dominant in recent years.</p>
         <div class="continue-button" onclick="showNextSection(18)">Continue</div>
     </section>
+
     <section id="section18">
         <p>Here is a reference that highlights this concept: Zappone, A., Di Renzo, M., & Debbah, M. (2019). Wireless Networks Design in the Era of Deep Learning: Model-Based, AI-Based, or Both?. IEEE Transactions on Communications, PP. 1-1.</p>
         <div class="continue-button" onclick="showNextSection(19)">Continue</div>
     </section>
+
     <section id="section19">
         <p>It's like comparing a small car with a limited fuel tank to a powerful rocket with a massive fuel supply. The rocket can go much farther and achieve much greater heights because it has more fuel to burn.</p>
         <div class="why-it-matters">
@@ -297,37 +275,54 @@
         </div>
         <div class="continue-button" onclick="showNextSection(20)">Continue</div>
     </section>
+
     <section id="section20">
         <div class="stop-and-think">
             <h3>Stop and Think</h3>
-            <p>Can you think of some areas where large datasets are being generated that could be used to train deep learning models?</p>
-            <button class="reveal-button" onclick="revealAnswer('stop-and-think-20')">Reveal Answer</button>
-            <p id="stop-and-think-20" style="display: none;">Some examples include: social media (text, images, videos), online shopping (customer behavior, product information), medical records (patient data, medical images), and scientific research (experimental data, simulations).</p>
+            <h4>Can you think of some areas where large datasets are being generated that could be used to train deep learning models?</h4>
+            <button class="reveal-button" onclick="revealAnswer('stop-and-think-1')">Reveal</button>
+            <p id="stop-and-think-1" style="display: none;">Some examples include: social media (text, images, videos), online shopping (customer behavior, product information), medical records (patient data, medical images), and scientific research (experimental data, simulations).</p>
         </div>
         <div class="continue-button" onclick="showNextSection(21)">Continue</div>
     </section>
 
     <section id="section21">
         <h2>Frequently Asked Questions</h2>
-            <div class="faq-section">
-                <h4>Why is deep learning so popular now if neural networks have been around for so long?</h4>
-                <p>Several factors have contributed to the rise of deep learning: the availability of massive datasets, the development of powerful hardware like GPUs, and algorithmic advancements like backpropagation and new network architectures.</p>
-                <h4>What's the difference between artificial intelligence, machine learning, and deep learning?</h4>
-                <p>Artificial intelligence (AI) is the broad concept of creating machines that can perform tasks that typically require human intelligence. Machine learning (ML) is a subset of AI where machines learn from data without being explicitly programmed. Deep learning is a subset of ML that uses deep neural networks with multiple layers to learn complex patterns.</p>
-            </div>
+        <div class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            <h4>Why is deep learning so popular now if neural networks have been around for so long?</h4>
+            <p>Several factors have contributed to the rise of deep learning: the availability of massive datasets, the development of powerful hardware like GPUs, and algorithmic advancements like backpropagation and new network architectures.</p>
+            <h4>What's the difference between artificial intelligence, machine learning, and deep learning?</h4>
+            <p>Artificial intelligence (AI) is the broad concept of creating machines that can perform tasks that typically require human intelligence. Machine learning (ML) is a subset of AI where machines learn from data without being explicitly programmed. Deep learning is a subset of ML that uses deep neural networks with multiple layers to learn complex patterns.</p>
+        </div>
         <div class="continue-button" onclick="showNextSection(22)">Continue</div>
     </section>
 
     <section id="section22">
         <h2>Test Your Knowledge</h2>
         <div class="test-your-knowledge">
+            <h3>Test Your Knowledge</h3>
             <h4>Which of the following statements are true?</h4>
-            <p><input type="checkbox" name="q1" value="a"> The perceptron was the first artificial neural network.</p>
-            <p><input type="checkbox" name="q1" value="b"> Backpropagation is an algorithm for training multi-layer neural networks.</p>
-            <p><input type="checkbox" name="q1" value="c"> Deep learning models perform better with more data.</p>
-            <p><input type="checkbox" name="q1" value="d"> Convolutional Neural Networks (CNNs) are primarily used for processing text data.</p>
-            <button class="check-button" onclick="checkAnswers('q1', ['a', 'b', 'c'])">Check Answers</button>
-            <p id="q1-feedback" style="display: none;"></p>
+            <ul>
+                <li>
+                    <input type="checkbox" id="option1" name="option1" value="1">
+                    <label for="option1">The perceptron was the first artificial neural network.</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="option2" name="option2" value="2">
+                    <label for="option2">Backpropagation is an algorithm for training multi-layer neural networks.</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="option3" name="option3" value="3">
+                    <label for="option3">Deep learning models perform better with more data.</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="option4" name="option4" value="4">
+                    <label for="option4">Convolutional Neural Networks (CNNs) are primarily used for processing text data.</label>
+                </li>
+            </ul>
+            <button class="check-button" onclick="checkAnswers()">Check Answers</button>
+            <p id="result"></p>
         </div>
         <div class="continue-button" onclick="showNextSection(23)">Continue</div>
     </section>
@@ -341,6 +336,7 @@
     </section>
 
     <script>
+        // Show the first section initially
         document.getElementById("section1").style.display = "block";
         document.getElementById("section1").style.opacity = "1";
 
@@ -368,26 +364,36 @@
             revealButton.style.display = "none";
         }
 
-        function checkAnswers(questionId, correctAnswers) {
-            const selectedAnswers = [];
-            const checkboxes = document.querySelectorAll(`input[name="${questionId}"]:checked`);
-            checkboxes.forEach((checkbox) => {
-                selectedAnswers.push(checkbox.value);
-            });
-        
-            const feedbackElement = document.getElementById(`${questionId}-feedback`);
+        function checkAnswers() {
+            const correctAnswers = [true, true, true, false];
+            let userScore = 0;
             
-            
-            if (selectedAnswers.sort().join(',')=== correctAnswers.sort().join(',')) {
-                feedbackElement.textContent = "Correct! Well done.";
-                feedbackElement.style.color = "green";
-            } else {
-                feedbackElement.textContent = "Incorrect. Try again!";
-                feedbackElement.style.color = "red";
+            for (let i = 1; i <= 4; i++) {
+                const checkbox = document.getElementById("option" + i);
+                if (checkbox.checked === correctAnswers[i-1]) {
+                    userScore++;
+                }
             }
             
+            const resultElement = document.getElementById("result");
+            resultElement.textContent = `You got ${userScore} out of 4 correct!`;
             
-            feedbackElement.style.display = "block";
+            // Display explanations
+            const explanations = [
+                "Correct, the perceptron was developed in 1957 by Frank Rosenblatt and was the simplest form of an artificial neural network.",
+                "Correct, backpropagation is a crucial algorithm for efficiently training neural networks with multiple layers.",
+                "Absolutely right, deep learning models thrive on large datasets and their performance generally improves as the amount of training data increases.",
+                "CNNs are primarily used for processing images. Recurrent Neural Networks (RNNs) are better suited for text data."
+            ];
+            
+            for (let i = 1; i <= 4; i++) {
+                const checkbox = document.getElementById("option" + i);
+                const label = document.querySelector(`label[for="option${i}"]`);
+                const explanation = document.createElement("p");
+                explanation.textContent = explanations[i-1];
+                explanation.style.color = checkbox.checked === correctAnswers[i-1] ? "green" : "red";
+                label.parentNode.insertBefore(explanation, label.nextSibling);
+            }
         }
     </script>
 </body>
