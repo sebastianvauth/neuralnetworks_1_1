@@ -151,6 +151,7 @@
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
     <section id="section1">
@@ -257,14 +258,7 @@
 
     <section id="section15">
         <p>Let's look at a graph that illustrates this:</p>
-        <div class="visualaid-placeholder">
-            <img src="/placeholder.svg?height=400&width=600" alt="Deep Learning vs. Classical Learning: Performance Scaling,
-1. Axes:
-- The x-axis represents the "Amount of Training Data."
-- The y-axis represents "Performance."
-2. Performance Curve:
-- Classical Learning (Red Line): Initially, performance improves with the increasing amount of training data, but it reaches a plateau where additional training data does not significantly improve performance.
-- Deep Learning (Blue Line): Performance starts similarly to classical learning with smaller amounts of data but continues to improve significantly as more training data is added, surpassing classical learning's performance.">
+        <div id="performance-comparison" class="visualaid-placeholder" style="width: 600px; height: 400px; margin: 0 auto;">
         </div>
         <p>Deep learning models, fueled by large datasets, outperform classical methods as the amount of training data increases.</p>
         <div class="continue-button" onclick="showNextSection(16)">Continue</div>
@@ -317,6 +311,145 @@
         // Show the first section initially
         document.getElementById("section1").style.display = "block";
         document.getElementById("section1").style.opacity = "1";
+
+        // Deep Learning vs Classical Learning Performance Visualization
+        function createPerformanceComparison(containerId) {
+            // Set the dimensions and margins of the graph
+            const margin = {top: 40, right: 60, bottom: 60, left: 60};
+            const width = 600 - margin.left - margin.right;
+            const height = 400 - margin.top - margin.bottom;
+
+            // Remove any existing SVG
+            d3.select(containerId).select("svg").remove();
+
+            // Create SVG
+            const svg = d3.select(containerId)
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
+
+            // Generate data points
+            const data = {
+                classical: Array.from({length: 100}, (_, i) => ({
+                    x: i,
+                    y: 80 * (1 - Math.exp(-i/20))
+                })),
+                deep: Array.from({length: 100}, (_, i) => ({
+                    x: i,
+                    y: 95 * (1 - Math.exp(-i/40))
+                }))
+            };
+
+            // Set up scales
+            const x = d3.scaleLinear()
+                .domain([0, 100])
+                .range([0, width]);
+
+            const y = d3.scaleLinear()
+                .domain([0, 100])
+                .range([height, 0]);
+
+            // Create line generators
+            const classicalLine = d3.line()
+                .x(d => x(d.x))
+                .y(d => y(d.y))
+                .curve(d3.curveBasis);
+
+            const deepLine = d3.line()
+                .x(d => x(d.x))
+                .y(d => y(d.y))
+                .curve(d3.curveBasis);
+
+            // Add axes (without numbers)
+            svg.append("g")
+                .attr("class", "x-axis")
+                .attr("transform", `translate(0,${height})`)
+                .call(d3.axisBottom(x).ticks(5).tickFormat(""))
+                .style("font-size", "14px");
+
+            svg.append("g")
+                .attr("class", "y-axis")
+                .call(d3.axisLeft(y).ticks(5).tickFormat(""))
+                .style("font-size", "14px");
+
+            // Add axis labels
+            svg.append("text")
+                .attr("class", "x-label")
+                .attr("text-anchor", "middle")
+                .attr("x", width/2)
+                .attr("y", height + margin.bottom - 10)
+                .text("Amount of Training Data")
+                .style("font-size", "16px");
+
+            svg.append("text")
+                .attr("class", "y-label")
+                .attr("text-anchor", "middle")
+                .attr("transform", "rotate(-90)")
+                .attr("x", -height/2)
+                .attr("y", -margin.left + 15)
+                .text("Performance")
+                .style("font-size", "16px");
+
+            // Add the lines with animation
+            const classicalPath = svg.append("path")
+                .datum(data.classical)
+                .attr("class", "line classical")
+                .attr("fill", "none")
+                .attr("stroke", "#ff6b6b")
+                .attr("stroke-width", 3)
+                .attr("d", classicalLine);
+
+            const deepPath = svg.append("path")
+                .datum(data.deep)
+                .attr("class", "line deep")
+                .attr("fill", "none")
+                .attr("stroke", "#4dabf7")
+                .attr("stroke-width", 3)
+                .attr("d", deepLine);
+
+            // Add labels for the lines with improved positioning
+            svg.append("text")
+                .attr("x", width - 120)
+                .attr("y", y(data.deep[80].y) - 15)  // Moved higher above the line
+                .text("Deep Learning")
+                .attr("fill", "#4dabf7")
+                .style("font-size", "14px");
+
+            svg.append("text")
+                .attr("x", width - 120)
+                .attr("y", y(data.classical[80].y) + 15)  // Moved lower below the line
+                .text("Classical Learning")
+                .attr("fill", "#ff6b6b")
+                .style("font-size", "14px");
+
+            // Add grid lines
+            svg.append("g")
+                .attr("class", "grid")
+                .attr("opacity", 0.1)
+                .call(d3.axisLeft(y)
+                    .tickSize(-width)
+                    .tickFormat("")
+                );
+
+            // Animate the lines on load
+            const totalLength = classicalPath.node().getTotalLength();
+            
+            classicalPath
+                .attr("stroke-dasharray", totalLength + " " + totalLength)
+                .attr("stroke-dashoffset", totalLength)
+                .transition()
+                .duration(2000)
+                .attr("stroke-dashoffset", 0);
+
+            deepPath
+                .attr("stroke-dasharray", totalLength + " " + totalLength)
+                .attr("stroke-dashoffset", totalLength)
+                .transition()
+                .duration(2000)
+                .attr("stroke-dashoffset", 0);
+        }
 
         function showNextSection(nextSectionId) {
             const currentButton = event.target;
@@ -373,6 +506,11 @@
                 label.parentNode.insertBefore(explanation, label.nextSibling);
             }
         }
+
+        // Initialize the performance comparison visualization
+        document.addEventListener('DOMContentLoaded', function() {
+            createPerformanceComparison('#performance-comparison');
+        });
     </script>
 </body>
 </html>
